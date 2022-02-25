@@ -1,0 +1,26 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.background-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.75rem;
+    height: 3.75rem;
+    margin: 2rem 1.5rem 2rem 2rem;
+    border-radius: 0.375rem;
+}
+.background-icon-burn{
+    background: rgba(250, 0, 0, 0.1)
+}
+.background-icon-protein{
+    background: rgba(74, 184, 255, 0.1)
+}
+.background-icon-carbohydrates{
+    background: rgba(249, 206, 35, 0.1)
+}
+.background-icon-fat{
+    background: rgba(253, 81, 129, 0.1)
+}

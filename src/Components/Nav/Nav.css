@@ -1,0 +1,28 @@
+.nav-header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    height: 100%;
+    background: #020203;
+    padding: 0 5.6rem 0 2rem;
+}
+
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+
+@media only screen and (max-width: 1299px) {
+    .nav-header {
+        padding: 0 2rem 0 1.5rem;
+    }
+
+    .nav-item {
+        font-size: 1.3rem;
+    }
+}

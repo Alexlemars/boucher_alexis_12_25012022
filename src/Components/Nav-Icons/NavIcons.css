@@ -1,0 +1,39 @@
+.nav-icons {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #020203;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 7.3rem;
+    height: 100vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container-icons {
+    display: flex;
+    flex-direction: column;
+    height: 32vh;
+}
+
+.copyright {
+    color: #fff;
+    transform: rotate(-90deg);
+    position: fixed;
+    bottom: 7.8%;
+    bottom: 12vh;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 500;
+    width: 8.6;
+}
+
+@media only screen and (max-width: 1299px) {
+    .container-icons {
+        height: 45vh;
+    }
+}

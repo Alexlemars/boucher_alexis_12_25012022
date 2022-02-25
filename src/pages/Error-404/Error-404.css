@@ -1,0 +1,32 @@
+.Error404{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FF0101;
+    height: 600px;
+    gap: 160px;
+
+}
+.Content-error-404{
+    text-align: center;
+}
+.Number-error-404{
+font-style: normal;
+font-weight: bold;
+font-size: 200px;
+line-height: 142px;
+}
+
+.Text-error-404{
+    color: black;
+font-size: 30px;
+line-height: 142%
+}
+
+
+
+.Back-Home{
+    color: #FF0101;
+    
+}
