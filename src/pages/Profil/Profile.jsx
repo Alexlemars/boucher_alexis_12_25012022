@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from 'react';
 import "./Profile.css"
-import { USER_MAIN_DATA,USER_ACTIVITY,USER_AVERAGE_SESSIONS,USER_PERFORMANCE } from '../../API/Data/data';
 import { getUserData } from '../../API/Data/API-call/API-call';
 import { useParams } from 'react-router-dom';
 import BarChartGraph from '../../Components/Recharts/barchartgraph/barchartgraph';
@@ -24,9 +23,31 @@ const Profile = ()=>{
     const { id } = useParams();
 
     useEffect(() => {
+        /**
+         * @async
+         * @returns{Response}
+         * 
+         */
        
         async function getProfilePageAllData() {
             try {
+
+                /**
+                 * @constant userInfos
+                 * @property{string} firstName / userInfos
+                 * @property{string} lastName / userInfos
+                 * @property{number} age / userInfo 
+                 * 
+                 * @property {number} calorieCount / keyData
+                 * @property {number} proteinCount / keyData
+                 * @property {number} carboHydrateCount / keyData
+                 * @property {number} lipidCount / keyData
+                 * 
+                 * @property {number} todayScore / todayScore
+                 * @property {number} score / todayScore
+                 * 
+                 * 
+                 */
 
                 
                 
@@ -34,13 +55,38 @@ const Profile = ()=>{
                 setUserInfos(userInfos.data.data.userInfos);
                 setKeyData(userInfos.data.data.keyData);
 
+                //Error in Backend, different name for the same property
+                // todayscore for user12 / score for user18
+
                 setTodayScore(userInfos.data.data.todayScore || userInfos.data.data.score);
+
+                /**
+                 * Array of objet
+                 * @constant activity
+                 * @property {string|number} day
+                 * @property {number} kilogram
+                 * @property {number} calories
+                 */
 
                 const activity = await getUserData(id, 'activity');
                 setUserActivity(activity.data.data.sessions);
 
+                /**
+                 * Array of objet
+                 * @constant averageSessions
+                 * @property {number} day
+                 * @property {number} sessionsLenght
+                 */
+
                 const averageSessions = await getUserData(id, 'average-sessions');
                 setUserAverageSessions(averageSessions.data.data.sessions);
+
+                /**
+                 * Array of objet
+                 * @constant performance
+                 * @property {number} value
+                 * @property {number} kind
+                 */
 
                 
                 const performance = await getUserData(id, 'performance');
@@ -72,7 +118,7 @@ const Profile = ()=>{
                     
                     
                      
-                    <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+                    <p>Félicitation ! Vous avez explosé vos objectifs hier <span aria-label='' role="img">👏</span></p>
                 </div>
 
                 <div className="profilePage-informations">

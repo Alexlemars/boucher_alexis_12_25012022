@@ -2,6 +2,12 @@ import React from 'react';
 import './Error-404.css'
 import {Link} from 'react-router-dom'
 
+/**
+ * It's displayed when error 404
+ * @returns {ReactElement} Error404 component
+ */
+
+
 const Error =()=> {
     
         return (

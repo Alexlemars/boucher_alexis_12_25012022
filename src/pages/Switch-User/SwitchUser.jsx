@@ -3,7 +3,10 @@ import { NavLink } from 'react-router-dom';
 import "./SwitchUser.css"
 import { USER_MAIN_DATA } from '../../API/Data/data';
  
-
+/**
+ * Temporary page, it replaces the unavailable Connection function. It allows you to switch from one user to another while waiting.
+ * @returns {ReactElement} SwitchUser
+ */
 const SwitchUser = () => {
     return (
         <main className="main-switchUsers">
