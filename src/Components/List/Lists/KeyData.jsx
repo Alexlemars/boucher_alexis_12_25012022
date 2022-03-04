@@ -1,5 +1,16 @@
 import React from "react";
 import "./KeyData.css"
+import PropTypes from 'prop-types';
+
+/**
+ * Card with kcal & nutrients informations
+ * @param {string} src - url for image
+ * @param {number} count - number of quantity
+ * @param {string} unit - unit (kg, kcal...)
+ * @param {string} nutrientsType - type of nutrients (protein,carbohydrat...)
+ *
+ * @returns {ReactElement}
+ */
 
 
 const KeyData = ({ src, count, unit, nutrientsType,className })=>{
@@ -20,5 +31,12 @@ const KeyData = ({ src, count, unit, nutrientsType,className })=>{
     )
 
 }
+KeyData.propTypes = {
+    style: PropTypes.object,
+    src: PropTypes.string.isRequired,
+    count: PropTypes.number,
+    unit: PropTypes.string.isRequired,
+    nutrientsType: PropTypes.string.isRequired,
+};
 
 export default KeyData

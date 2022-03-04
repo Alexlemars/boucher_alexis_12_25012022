@@ -9,11 +9,27 @@ import {
     Line,
 } from 'recharts';
 import { dataAverageFormat } from '../../../API/Data/API-format/API-format-average';
+import PropTypes from 'prop-types'
+
+/**
+ * LineChartGraph with Recharts contain the array's data.
+ * @param {array} userAverageSessions - day & sessionLength of each day of the week.
+ *
+ * @returns {ReactElement} LineChart
+ */
 
 
 function Linechartgraph({AverageSessions}) {
 
+    // Format the data'userAverageSessions for the requested format's design
+
     const data = dataAverageFormat(AverageSessions)
+
+    /** Customize the Tooltip with content
+     * @param {boolean} active - if active, display the tooltip
+     * @param {object} payload - The source data of the content to be displayed in the tooltip.
+     * @returns {ReactElement}
+     */
 
     const CustomToolTip = ({ active, payload }) => {
         if (active && payload && payload.length) {
@@ -82,5 +98,9 @@ function Linechartgraph({AverageSessions}) {
         </div>
     );
 }
+
+Linechartgraph.propTypes = {
+    userAverageSessions: PropTypes.array,
+};
 
 export default Linechartgraph;

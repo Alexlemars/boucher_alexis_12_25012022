@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { ReactComponent as Logo } from "../../assets/logo.svg"
 import './Nav.css';
 
+/**
+ * Main menu navigation inside Header
+ * @returns {ReactElement} MainNav
+ */
 
 
 const Nav = () => {

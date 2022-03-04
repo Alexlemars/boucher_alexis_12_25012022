@@ -6,7 +6,14 @@ import {
     RadialBar,
     PolarAngleAxis,
 } from 'recharts'; 
+import PropTypes from 'prop-types';
 
+/**
+ * RadialBarChartGraph with Recharts contain the array's data
+ * @param {number} todayScore - decimal number between 0 and 1, percentage of completion of the goal
+ *
+ * @returns {ReactElement} RadialBarChart
+ */
 
 function Radialbarchartgraph({todayScore}) {
 
@@ -61,5 +68,9 @@ function Radialbarchartgraph({todayScore}) {
         </div>
     );
 }
+
+Radialbarchartgraph.propTypes = {
+    todayScore: PropTypes.number,
+};
 
 export default Radialbarchartgraph;

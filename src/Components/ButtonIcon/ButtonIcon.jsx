@@ -1,6 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './ButtonIcon.css';
+import PropTypes from 'prop-types';
+
+/**
+ * Secondary menu navigation button in NavIcons
+ * @param {string} path - link, direction when is clicked
+ * @param {string} imgSrc - image's URL
+ * @param {string} altText - image's alt, description for screen reader
+ * @returns {ReactElement} ButtonIcon component
+ */
 
 
 const ButtonIcon = ({ path, imgSrc, altText }) => {
@@ -15,6 +24,12 @@ const ButtonIcon = ({ path, imgSrc, altText }) => {
             </button>
         </NavLink>
     );
+};
+
+ButtonIcon.propTypes = {
+    imgSrc: PropTypes.string.isRequired,
+    altText: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
 };
 
 export default ButtonIcon;

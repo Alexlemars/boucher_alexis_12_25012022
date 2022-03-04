@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Profil/Profile.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Profil/Profile.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React,{useEffect,useState} from 'react';
+import "./Profile.css"
+import { getUserData } from '../../API/Data/API-call/API-call';
+import { useParams } from 'react-router-dom';
+import BarChartGraph from '../../Components/Recharts/barchartgraph/barchartgraph';
+import Linechartgraph from '../../Components/Recharts/linechartgraph/linechartgraph';
+import Radarchartgraph from '../../Components/Recharts/radarchartgraph/radarchartgraph';
+import Radialbarchartgraph from '../../Components/Recharts/radialbarchartgraph/radialbarchartgraph';
+import List from '../../Components/List/List';
+
+
+
+const Profile = ()=>{
+
+    const [userInfos, setUserInfos] = useState({});
+    const [todayScore, setTodayScore] = useState();
+    const [keyData, setKeyData] = useState({});
+    const [userActivity, setUserActivity] = useState([]);
+    const [userAverageSessions, setUserAverageSessions] = useState([]);
+    const [userPerformance, setUserPerformance] = useState([]);
+
+
+    const { id } = useParams();
+
+    useEffect(() => {
+        /**
+         * @async
+         * @returns{Response}
+         * 
+         */
+       
+        async function getProfilePageAllData() {
+            try {
+
+                /**
+                 * @constant  userInfos
+                 * @property {string} firstName / userInfos
+                 * @property {string} lastName / userInfos
+                 * @property {number} age / userInfo 
+                 * 
+                 * @property {number} calorieCount / keyData
+                 * @property {number} proteinCount / keyData
+                 * @property {number} carboHydrateCount / keyData
+                 * @property {number} lipidCount / keyData
+                 * 
+                 * @property {number} todayScore / todayScore
+                 * @property {number} score / todayScore
+                 * 
+                 * 
+                 */
+
+                
+                
+                const userInfos = await getUserData(id, '');
+                setUserInfos(userInfos.data.data.userInfos);
+                setKeyData(userInfos.data.data.keyData);
+
+                //Error in Backend, different name for the same property
+                // todayscore for user12 / score for user18
+
+                setTodayScore(userInfos.data.data.todayScore || userInfos.data.data.score);
+
+                /**
+                 * Array of objet
+                 * @constant activity
+                 * @property {string|number} day
+                 * @property {number} kilogram
+                 * @property {number} calories
+                 */
+
+                const activity = await getUserData(id, 'activity');
+                setUserActivity(activity.data.data.sessions);
+
+                /**
+                 * Array of objet
+                 * @constant averageSessions
+                 * @property {number} day
+                 * @property {number} sessionsLenght
+                 */
+
+                const averageSessions = await getUserData(id, 'average-sessions');
+                setUserAverageSessions(averageSessions.data.data.sessions);
+
+                /**
+                 * Array of objet
+                 * @constant performance
+                 * @property {number} value
+                 * @property {number} kind
+                 */
+
+                
+                const performance = await getUserData(id, 'performance');
+                setUserPerformance(performance.data.data.data);
+            } catch (error) {
+                console.error('Error: profileAllData', error);
+                 
+            }
+
+            
+        }
+        getProfilePageAllData();
+    }, [id]);
+
+    const { firstName } = userInfos;
+    
+    
+
+
+        return (
+
+            
+            &lt;main  className="main-profilePage">
+                &lt;div className="profilePage-heading">
+                    &lt;h1>
+                        Bonjour,
+                        &lt;span className="profilePage-firstName"> {firstName}&lt;/span>
+                    &lt;/h1>
+                    
+                    
+                     
+                    &lt;p>Félicitation ! Vous avez explosé vos objectifs hier &lt;span aria-label='' role="img">👏&lt;/span>&lt;/p>
+                &lt;/div>
+
+                &lt;div className="profilePage-informations">
+                    &lt;div className="profilePage-graphs">
+                        &lt;div className="day-activity">
+                            &lt;div className="bar-chart-graph">
+                                &lt;BarChartGraph  Activity={userActivity}/>    
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;div className="trio-charts">
+                            &lt;div className="line-chart-graph">
+                            &lt;Linechartgraph AverageSessions={userAverageSessions}/>
+                            &lt;/div>
+                            &lt;div className="radar-chart-graph">
+                            &lt;Radarchartgraph Performance={userPerformance}/>
+                            &lt;/div>
+                            &lt;div className="radialbar-chart-graph">
+                            &lt;Radialbarchartgraph  todayScore={todayScore}/>
+                                
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+
+                    &lt;div className="keys-data-cards">
+                    
+                       
+                            &lt;List KeyList={keyData}/>
+                         
+                    &lt;/div>
+                &lt;/div>
+            &lt;/main>
+        );
+    }
+
+
+export default Profile;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#activity">activity</a></li><li><a href="global.html#averageSessions">averageSessions</a></li><li><a href="global.html#BarChartGraph">BarChartGraph</a></li><li><a href="global.html#baseURL">baseURL</a></li><li><a href="global.html#ButtonIcon">ButtonIcon</a></li><li><a href="global.html#dataActivityFormat">dataActivityFormat</a></li><li><a href="global.html#dataAverageFormat">dataAverageFormat</a></li><li><a href="global.html#dataPerformanceFormat">dataPerformanceFormat</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyData">KeyData</a></li><li><a href="global.html#Linechartgraph">Linechartgraph</a></li><li><a href="global.html#List">List</a></li><li><a href="global.html#Nav">Nav</a></li><li><a href="global.html#NavIcons">NavIcons</a></li><li><a href="global.html#performance">performance</a></li><li><a href="global.html#Radarchartgraph">Radarchartgraph</a></li><li><a href="global.html#Radialbarchartgraph">Radialbarchartgraph</a></li><li><a href="global.html#SwitchUser">SwitchUser</a></li><li><a href="global.html#userInfos">userInfos</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Fri Mar 04 2022 11:55:21 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

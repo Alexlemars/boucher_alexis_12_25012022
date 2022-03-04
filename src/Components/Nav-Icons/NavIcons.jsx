@@ -6,6 +6,11 @@ import CyclingIcon from "../../assets/icon-cycle.svg"
 import MusculationIcon from "../../assets/icon-musculation.svg"
 import './NavIcons.css';
 
+/**
+ * Secondary menu navigation
+ * @returns {ReactElement} NavIcons component
+ */
+
 
 const NavIcons = () => {
     return (

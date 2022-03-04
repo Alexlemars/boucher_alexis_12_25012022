@@ -5,6 +5,13 @@ import Calories from '../../assets/Calories.svg'
 import Fat from '../../assets/Fat.svg'
 import Protein from '../../assets/Protein.svg'
 import Lists from "./Lists/KeyData";
+import PropTypes from 'prop-types';
+
+/**
+ * List of keyData
+ * @param {object} keyData - calorieCount, proteinCount, carbohydrateCount, lipidCount
+ * @returns {ReactElement} KeyDataList component
+ */
 
 const List = ({KeyList})=>{
     return(
@@ -42,5 +49,9 @@ const List = ({KeyList})=>{
     )
 
 }
+
+List.propTypes = {
+    keyData: PropTypes.object,
+};
 
 export default List

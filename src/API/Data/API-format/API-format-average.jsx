@@ -1,4 +1,14 @@
+/**
+ * Format userAverageSessions' data for LineChartGraph component
+ * dataAverageSessionsFormat
+ * @param {array} array
+ * @returns {array.object} firstLetterDay, day, sessionLength
+ */
+
 export const dataAverageFormat = arraData => {
+
+    // Add 2 data at first & last place to array to reach the horizontal border of the graphic as requested on the design mock-up
+
     const prevDay = {
         day: 0,
         sessionLength: 0,
@@ -8,8 +18,15 @@ export const dataAverageFormat = arraData => {
         sessionLength: 0,
     };
 
+    // return prevDay in first place of the array
+
     arraData.unshift(prevDay);
+
+     // return nextDay in last place of the array
+
     arraData.push(nextDay);
+
+    // Add a property 'firstLetterDay' @type {string} for letters in bottom of graph
 
     const array = arraData.map(data => {
         switch (data.day) {

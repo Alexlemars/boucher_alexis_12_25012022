@@ -33,10 +33,10 @@ const Profile = ()=>{
             try {
 
                 /**
-                 * @constant userInfos
-                 * @property{string} firstName / userInfos
-                 * @property{string} lastName / userInfos
-                 * @property{number} age / userInfo 
+                 * @constant  userInfos
+                 * @property {string} firstName / userInfos
+                 * @property {string} lastName / userInfos
+                 * @property {number} age / userInfo 
                  * 
                  * @property {number} calorieCount / keyData
                  * @property {number} proteinCount / keyData

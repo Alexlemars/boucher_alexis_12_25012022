@@ -11,12 +11,27 @@ import {
     Bar,
 } from 'recharts';
 import { dataActivityFormat } from '../../../API/Data/API-format/API-format-activity';
+import PropTypes from 'prop-types';
 
-
+/**
+ * BarChartGraph with Recharts contain the array's data
+ * @param {array} userActivity - weight & calories of each day of the week
+ *
+ * @returns {ReactElement} BarChart
+ */
 
 function BarChartGraph({Activity}) {
     
+    // Format the data'userActivity for the requested format's design
     const data = dataActivityFormat(Activity);
+
+    /**
+     * Customize the Tooltip with content
+     * @param {boolean} active - if active, display the tooltip
+     * @param {object} payload - The source data of the content to be displayed in the tooltip.
+     *
+     * @returns {ReactElement} CustomToolTip
+     */
 
     const CustomToolTip = ({ active, payload }) => {
         if (active && payload && payload.length) {
@@ -110,5 +125,8 @@ function BarChartGraph({Activity}) {
         </div>
     );
 }
+BarChartGraph.propTypes = {
+    userActivity: PropTypes.array,
+};
 
 export default BarChartGraph;

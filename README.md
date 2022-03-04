@@ -1,71 +1,88 @@
-# Getting Started with Create React App
+# Develop an analytics Dashboard with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Prerequisites for install
 
-In the project directory, you can run:
+- You need [Git](https://git-scm.com) to clone the repository
 
-### `npm start`
+- You need [Node](https://nodejs.org/en/) to run the npm commands
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Dependencies
 
-### `npm test`
+- [React](https://reactjs.org)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React-router-dom](https://reactrouter.com/web/guides/quick-start) 
 
-### `npm run build`
+`$ npm install react-router-dom`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Recharts](https://recharts.org/en-US)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`$ npm install recharts`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Axios](https://github.com/axios/axios) 
 
-### `npm run eject`
+`$ npm install axios`  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Prop-types](https://www.npmjs.com/package/prop-types)  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`$ npm i prop-types`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Recommended text editor: [Visual Studio Code](https://code.visualstudio.com)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installing and launching Back-End
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository of SportSee back-end:   
 
-### Code Splitting
+`git clone https://github.com/Alexlemars/P12_Backend-API.git`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+2. Inside this back-end repository, install dependencies:   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`npm install`
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Launch back-end on port 3000 (default port):   
 
-### Advanced Configuration
+`npm run start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Installing and launching Front-End
 
-### `npm run build` fails to minify
+1. Clone the repository of SportSee front-end:   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# boucher_alexis_12_25012022
+`git clone https://github.com/Alexlemars/boucher_alexis_12_25012022.git`
+
+
+
+2. Inside this front-end repository, install dependencies:   
+
+`npm install`
+
+
+
+3. Launch front-end on port 3001:   
+
+`npm start`
+
+
+
+4. Front-end is now rendered at URL `http://localhost:3001`.
+
+
+5. URL availables :   
+
+`http://localhost:3001/user/12`   
+
+`http://localhost:3001/user/18`   
+
+
+
+## N.B.:
+- SportSee API only contains data for users with id '12' and '18'.
+
+## Auteur
+* [Boucher Alexis](https://github.com/Alexlemars)

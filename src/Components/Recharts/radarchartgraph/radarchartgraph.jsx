@@ -7,9 +7,17 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 import { dataPerformanceFormat } from '../../../API/Data/API-format/API-format-performance';
+import PropTypes from 'prop-types';
 
+/**
+ * RadarChartGraph with Recharts contain the array's data
+ * @param {array} userPerformance - value & kind.
+ * @returns {ReactElement} RadarChart
+ */
 
 function Radarchartgraph({Performance}) {
+
+     // Format the data'userPerformance for the requested format's design
 
     const data = dataPerformanceFormat(Performance)
     console.log(data);
@@ -39,5 +47,8 @@ function Radarchartgraph({Performance}) {
         </div>
     );
 }
+Radarchartgraph.propTypes = {
+    userPerformance: PropTypes.array,
+};
 
 export default Radarchartgraph;

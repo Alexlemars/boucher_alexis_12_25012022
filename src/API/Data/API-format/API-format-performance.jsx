@@ -1,4 +1,15 @@
+/**
+ * Format userPerformance' data for RadarChartGraph component
+ * dataPerformanceFormat
+ * @param {array} array
+ * @returns {object} activity, data(value, kind)
+ */
+
+
 export const dataPerformanceFormat = array =>
+
+    // Add a property 'activity' for each kind of object in array.
+    // & reverse the order of kind for respect the design mock-up.
 
     array.reverse().map(data => {
         switch (data.kind) {
