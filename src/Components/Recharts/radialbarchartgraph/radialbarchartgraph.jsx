@@ -41,12 +41,12 @@ function Radialbarchartgraph({todayScore}) {
                     cy="50%"
                     width="100%"
                     height="100%"
-                    innerRadius="71%"
+                    innerRadius="80%"
                     outerRadius="90%"
                     barSize={10}
                     data={data}
                     startAngle={90}
-                    endAngle={450}
+                    endAngle={1000}
                 >
                     <PolarAngleAxis
                         type="number"
